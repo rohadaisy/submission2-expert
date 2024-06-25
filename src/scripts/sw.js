@@ -4,7 +4,7 @@ import CacheHelper from './utils/cache-helper'; // Import cache helper utility
 // List of assets to cache
 const assetsToCache = [
   './',
-  './images/dreamy-meal-icon.svg',
+  './images/icon.png',
   './images/hero-image.jpg',
   './images/app-icon/72x72.png',
   './images/app-icon/96x96.png',
