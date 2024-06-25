@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+header .navbar {
+  padding: 20px 25px;
+  max-width: 1400px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .navbar .logo {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+header .navbar .nav-list .nav-items {
+  width: 75vw;
+  padding: 40px 20px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: 0.35s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 1;
+  animation: disappear 0.5s ease-in-out;
+}
+header .navbar .nav-list .nav-items.active {
+  transform: translateX(0);
+  box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.3333333333);
+  animation: appear 0.5s ease-in-out;
+}
+header .navbar .nav-list .nav-items .nav-item a {
+  padding: 2px 12px;
+  font-size: 18px;
+  background-color: #333;
+}
+header .navbar .nav-list .nav-items .nav-item a:hover {
+  text-decoration: underline;
+}
+
+/* SM: minimum viewport width 576px or above */
+@media screen and (min-width: 576px) {
+  header .navbar {
+    padding: 25px 40px;
+  }
+  header .navbar .nav-list button.hamburger-btn {
+    display: none;
+  }
+  header .navbar .nav-list .nav-items {
+    padding: 0;
+    flex-direction: row;
+    width: auto;
+  }
+  header .navbar .nav-list .nav-items .nav-item a {
+    font-size: initial;
+  }
+}
+/* MD: minimum viewport width 768px or above */
+@media screen and (min-width: 768px) {
+  header .navbar .logo {
+    font-size: 1.5rem;
+  }
+  header .navbar .nav-list .nav-items {
+    position: static;
+    transform: translateX(0);
+  }
+}
+/* LG: minimum viewport width 992px or above */
+@media screen and (min-width: 992px) {
+  header .navbar {
+    padding: 30px 50px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

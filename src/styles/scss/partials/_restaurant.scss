@@ -1,0 +1,109 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.restaurant-content {
+  margin-block: 2.5rem;
+  padding: 48px;
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var.$tertiary-color;
+    text-align: center;
+  }
+
+  .restaurant-list {
+    margin: 32px auto auto;
+    text-align: left;
+    display: grid;
+    grid-row-gap: 16px;
+
+    .restaurant-item {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      width: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .restaurant-item-thumbnail {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .restaurant-item-content {
+        padding: 16px;
+
+        .city {
+          font-size: 14px;
+          color: var.$primary-color;
+        }
+
+        .restaurant-item-rating {
+          font-size: 12px;
+          text-transform: uppercase;
+          color: var.$primary-color;
+        }
+
+        .restaurant-item-rating-value {
+          color: var.$primary-color;
+        }
+
+        .restaurant-item-title {
+          color: var.$primary-color;
+          font-weight: 600;
+          font-size: 1.3rem;
+
+          a {
+            color: var.$tertiary-color;
+            text-decoration: none;
+            @include mix.minimal-size;
+            box-sizing: border-box;
+            display: inline-block;
+            padding-block: 0.4em;
+
+            &:hover {
+              color: var.$tertiary-color;
+            }
+          }
+        }
+
+        .restaurant-item-description {
+          margin-top: 16px;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.5em;
+          color: var.$tertiary-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .restaurant-item-content {
+    padding: 16px 32px 32px 32px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .restaurant-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .restaurant-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}

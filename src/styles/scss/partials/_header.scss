@@ -1,0 +1,112 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:map";
+
+header {
+  .navbar {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 9999;
+    background-color: #333;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var.$secondary-color;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      @include mix.minimal-size;
+      box-sizing: border-box;
+    }
+
+    .nav-list {
+      .nav-items {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1rem;
+
+        .nav-item {
+          display: inline-block;
+
+          a {
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            color: var.$secondary-color;
+            box-sizing: border-box;
+            display: inline-block;
+            @include mix.minimal-size;
+            padding: 0.8em;
+            transition: 0.2s;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .menu-hamburger {
+    font-size: 32px;
+    padding: 4px;
+    margin-inline: 0;
+    display: block;
+    background: transparent;
+    @include mix.minimal-size;
+    border: none;
+    color: var.$secondary-color;
+    cursor: pointer;
+  }
+
+  .nav-list {
+    background-color: var.$primary-color;
+    position: absolute;
+    height: 0;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    transition: 0.2s;
+    z-index: 100;
+    overflow: hidden;
+
+    ul {
+      flex-direction: column;
+      width: fit-content;
+      margin: 80px auto 0 auto;
+      text-align: center;
+      transition: 0.5s;
+      opacity: 0;
+      z-index: 100;
+    }
+
+    &.active {
+      height: 200px;
+
+      ul {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  header {
+    .menu-hamburger {
+      display: none;
+    }
+  }
+}
